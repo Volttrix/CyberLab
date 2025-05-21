@@ -1,11 +1,204 @@
-body{
-    background-color: rgb(141, 153, 174)
+/* Importação de fonte */
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+/* Reset e configurações globais */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Oswald', sans-serif;
 }
-@font-face {
-    font-family: 'myFont';
-    src: url('fonts/Orbitron-VariableFont_wght.ttf') format('opentype');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #1e1e2f, #23242a);
+    overflow: hidden;
+    color: #ffffff;
 }
-.txt{
-    color: #D3D3D3;
-    font-family: 'myFont'; 
+
+/* Estilo da caixa */
+.box {
+    width: 400px;
+    height: 450px;
+    background: linear-gradient(145deg, #1c1c1c, #2a2a2a);
+    border-radius: 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5), 0 -5px 10px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    position: relative;
+}
+
+.box::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 380px;
+    height: 420px;
+    background: linear-grandient (0deg, )
+}
+
+.box::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    width: 400px;
+    height: 450px;
+    background: linear-gradient(0deg, transparent, #0245ff, #0245ff);
+    transform-origin: bottom right;
+    animation: animate 6s linear infinite;
+    border-radius: 50%;
+    opacity: 0.5;
+}
+
+.box::after {
+    animation-duration: 5s;
+}
+/* Animação */
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+/* Exemplo de uso */
+.rotating-element {
+    animation: animate 5s linear infinite; /* Rotação suave e contínua */
+}
+
+
+/* Estilo do formulário */
+.form {
+    position: absolute;
+    inset: 2px;
+    border-radius: 20px;
+    background: linear-gradient(145deg, #28292d, #1e1e1e);
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding: 30px;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form h2 {
+    color: #fff;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 20px;
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form .input {
+    text-align: left;
+}
+
+.form .input .InputBox {
+    margin-top: 15px;
+}
+
+.form .input .InputBox label {
+    display: block;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.form .input .InputBox input {
+    position: relative;
+    width: 100%;
+    height: 45px;
+    border: 2px solid #0245ff;
+    outline: none;
+    padding: 5px 15px;
+    background: transparent;
+    color: #ffffff;
+    font-size: 16px;
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.form .input .InputBox input:hover {
+    border-color: #3ea4f2;
+    box-shadow: 0px 0px 10px 5px rgba(30, 125, 233, 0.5);
+}
+
+.form .input .InputBox input[type="submit"] {
+    cursor: pointer;
+    margin-top: 20px;
+    letter-spacing: 1px;
+    width: 100%;
+    height: 45px;
+    border: none;
+    outline: none;
+    padding: 5px 15px;
+    background: linear-gradient(145deg, #0245ff, #3ea4f2);
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 800;
+    border-radius: 25px;
+    transition: box-shadow 0.3s ease, background-color 0.3s ease;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.form .input .InputBox input[type="submit"]:hover {
+    background: linear-gradient(145deg, #3ea4f2, #0245ff);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.5);
+}
+
+.form .input .InputBox input[type="submit"]:active {
+    color: rgba(255, 255, 255, 0.8);
+    background: #0270ff;
+    box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.5);
+}
+
+/* Estilo do link "esqueceu a senha" */
+.forgot {
+    margin-top: 15px;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.forgot a {
+    color: #1467d3;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot a:hover {
+    color: #3ea4f2;
+    text-decoration: underline;
+}
+
+/* Responsividade */
+@media (max-width: 480px) {
+    .box {
+        width: 90%;
+        height: auto;
+        border-radius: 15px;
+    }
+
+    .form {
+        padding: 20px;
+    }
+
+    .form h2 {
+        font-size: 18px;
+    }
+
+    .form .input .InputBox input {
+        font-size: 14px;
+    }
 }
