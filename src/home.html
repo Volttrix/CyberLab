@@ -1,31 +1,56 @@
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>CyberLab - Login</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/style.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Oswald&display=swap" rel="stylesheet" />
 </head>
 <body>
+
+    <!-- Navegação dinâmica -->
+    <div id="navbar"></div>
+
+    <!-- Título da Página -->
+    <h1 class="txt">Bem-vindo ao <span>CyberLab</span></h1>
+
+    <!-- Formulário de Login -->
     <div class="box">
         <form class="form">
             <h2>Login</h2>
             <div class="input">
                 <div class="InputBox">
-                    <label for="username">Username</label>
-                    <input type="text" id="username" name="username" placeholder="Enter your username" required />
+                    <label for="username">Usuário</label>
+                    <input type="text" id="username" name="username" placeholder="Digite seu usuário" required />
                 </div>
                 <div class="InputBox">
-                    <label for="password">Password</label>
-                    <input type="password" id="password" name="password" placeholder="Enter your password" required />
+                    <label for="password">Senha</label>
+                    <input type="password" id="password" name="password" placeholder="Digite sua senha" required />
                 </div>
                 <div class="InputBox">
-                    <input type="submit" value="Sign-in" />
+                    <input type="submit" value="Entrar" />
                 </div>
             </div>
-            <p class="forgot">Forgot Password? <a href="#">Click here</a></p>
+            <p class="forgot">Esqueceu a senha? <a href="#">Clique aqui</a></p>
         </form>
     </div>
+
+    <!-- Scripts -->
+    <script>
+        fetch('navbar.html')
+            .then(response => response.text())
+            .then(data => {
+                document.getElementById('navbar').innerHTML = data;
+            })
+            .catch(error => {
+                console.error('Erro ao carregar o navbar:', error);
+            });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.6/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-j1CDi7MgGQ12Z7Qab0qlWQ/Qqz24Gc6BM0thvEMVjHnfYGF0rmFCozFSxQBxwHKO"
+        crossorigin="anonymous"></script>
 </body>
 </html>
